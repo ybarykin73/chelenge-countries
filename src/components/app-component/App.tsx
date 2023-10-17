@@ -1,6 +1,7 @@
+import React from 'react'
 import './style'
 
-const App = () => {
+const App: React.FC = () => {
   return (
     <div>
       Hello world! 
