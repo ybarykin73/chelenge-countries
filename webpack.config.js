@@ -4,7 +4,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin')
 module.exports = {
   mode: 'development',
   entry: {
-    index: './src/index.js'
+    index: './src/index.ts'
   },
   devtool: 'inline-source-map',
   devServer: {
@@ -12,7 +12,7 @@ module.exports = {
     open: true
   },
   resolve: {
-    extensions: ['', '.js', '.jsx', '.css', '.scss', '.sass']
+    extensions: ['', '.tsx', '.ts', '.js', '.jsx', '.css', '.scss', '.sass']
   },
   plugins: [
     new HtmlWebpackPlugin({
@@ -48,6 +48,11 @@ module.exports = {
         use: {
           loader: 'babel-loader',
         }
+      },
+      {
+        test: /\.tsx?$/,
+        use: 'ts-loader',
+        exclude: /node_modules/
       }
     ],
   },
