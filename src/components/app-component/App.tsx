@@ -1,10 +1,11 @@
 import React from 'react'
+import Header from '../header/Header'
 import './style'
 
 const App: React.FC = () => {
   return (
     <div>
-      Hello world! 
+      <Header />
     </div>
   )
 }

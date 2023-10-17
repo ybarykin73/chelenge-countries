@@ -1,5 +1,5 @@
 :root {
-
+  
 }
 
 *,
@@ -9,5 +9,34 @@
 }
 
 body {
+  &[data-theme='dark'] {
+    --text-color: hsl(0, 0%, 100%);
+    --bg-color: hsl(207, 26%, 17%);
+    --primary-color: hsl(209, 23%, 22%)
+  }
+
+  &[data-theme='light'] {
+    --text-color: hsl(200, 15%, 8%);
+    --bg-color: hsl(0, 0%, 98%);
+    --primary-color: hsl(0, 0%, 52%)
+  }
+
   margin: 0;
+  font-family: 'Nunito Sans', sans-serif;
+  color: var(--text-color);
+  font-weight: 400;
+  background-color: var(--bg-color);
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  border: 0;
+  padding: 0;
+  white-space: nowrap;
+  clip-path: inset(100%);
+  clip: rect(0 0 0 0);
+  overflow: hidden;
 }
