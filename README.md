@@ -1,2 +1,6 @@
-# Шаблон для проектов на React.js
-  Базовая настройка webpack для создания приложения на React 
+# Разработка приложения Countries
+  Для практики взято задание https://www.frontendmentor.io/challenges/rest-countries-api-with-color-theme-switcher-5cacc469fec04111f7b848ca
+## Инструменты 
+  React
+  TypeScript
+  Scss
