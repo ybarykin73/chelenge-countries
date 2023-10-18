@@ -12,13 +12,16 @@ body {
   &[data-theme='dark'] {
     --text-color: hsl(0, 0%, 100%);
     --bg-color: hsl(207, 26%, 17%);
-    --primary-color: hsl(209, 23%, 22%)
+    --primary-color: hsl(209, 23%, 22%);
+    --box-shadow: rgba(245,245,245, 0.2) 0 0 8px
   }
 
   &[data-theme='light'] {
     --text-color: hsl(200, 15%, 8%);
     --bg-color: hsl(0, 0%, 98%);
-    --primary-color: hsl(0, 0%, 52%)
+    --primary-color: hsl(0, 0%, 52%);
+    --box-shadow: rgba(149,157,165, 0.2) 0 8px 24px
+
   }
 
   margin: 0;
@@ -26,6 +29,12 @@ body {
   color: var(--text-color);
   font-weight: 400;
   background-color: var(--bg-color);
+}
+
+.container {
+  width: 100%;
+  max-width: 1440px;
+  margin: 0 auto;
 }
 
 .visually-hidden {
