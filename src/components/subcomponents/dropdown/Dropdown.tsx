@@ -2,14 +2,19 @@ import React from "react";
 import Icom from "../icon/Icon";
 import downArrow from '../../../assets/icon/down-arrow.svg'
 
+import { IProps } from "./IDropdown";
 import './Dropdown.scss'
 
-const Dropdown: React.FC = () => {
+const Dropdown: React.FC<IProps> = (props) => {
+  const {
+    list
+  } = props
 
   const ref = React.useRef(null)
   const buttonRef = React.useRef(null)
 
   const [isOpen, seetIsOpen] = React.useState(false)
+  const [select, setSelect] = React.useState('')
 
   React.useEffect(() => {
     const closeDropdown = (e) => {
@@ -25,10 +30,14 @@ const Dropdown: React.FC = () => {
     }
   }, [])
 
+  const selectItem = (item: string) => {
+    setSelect(item)
+  }
+
   return (
     <div  className="dropdown">
       <div className="dropdown__header">
-        Filter by 
+        Filter by {select}
         <button ref={buttonRef} className="dropdown__button" onClick={() => seetIsOpen(!isOpen)}>
           <Icom size={16} icon={downArrow} />
         </button>
@@ -38,11 +47,18 @@ const Dropdown: React.FC = () => {
         isOpen &&
         <div ref={ref} className="dropdown__main">
           <ul className="dropdown__list">
-            <li className="dropdown__list-item">Africa</li>
-            <li className="dropdown__list-item">America</li>
-            <li className="dropdown__list-item">Asia</li>
-            <li className="dropdown__list-item">Europe</li>
-            <li className="dropdown__list-item">Oceania</li>
+            {
+              list.map(item => (
+                <li key={item.id} className="dropdown__list-item">
+                  <button 
+                    className="dropdown__list-button"
+                    onClick={() => selectItem(item.partWorld)}
+                  >
+                    {item.partWorld}
+                  </button>
+                </li>
+              ))
+            }
           </ul>
         </div>
       }
