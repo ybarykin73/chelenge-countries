@@ -1,0 +1,18 @@
+.search {
+  max-width: 480px;
+  border-radius: var(--border-radius);
+  box-shadow: var(--box-shadow);
+  display: flex;
+  justify-content: flex-start;
+  align-items: stretch;
+
+  &__button {
+    flex-shrink: 0;
+    flex-basis: 70px;
+    color: var(--text-color);
+  }
+
+  .input {
+    padding: 0 10px;
+  }
+}

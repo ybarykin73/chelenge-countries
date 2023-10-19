@@ -1,12 +1,14 @@
 import React from 'react'
 import Header from '../header/Header'
+import Main from '../main/Main'
 import './style'
 
 const App: React.FC = () => {
   return (
-    <div>
+    <React.Fragment>
       <Header />
-    </div>
+      <Main />
+    </React.Fragment>
   )
 }
 
