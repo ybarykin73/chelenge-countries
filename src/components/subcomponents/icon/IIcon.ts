@@ -1,10 +1,6 @@
-import React, { SVGAttributes } from 'react'
-
-export interface IOwnProps {
+export interface IProps {
   className?: string,
   // TODO поправить тип
   icon: any,
   size?: number
 }
-
-export type IProps = IOwnProps & SVGAttributes<SVGAElement>

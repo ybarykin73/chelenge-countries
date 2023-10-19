@@ -1,0 +1,53 @@
+import React from "react";
+import Icom from "../icon/Icon";
+import downArrow from '../../../assets/icon/down-arrow.svg'
+
+import './Dropdown.scss'
+
+const Dropdown: React.FC = () => {
+
+  const ref = React.useRef(null)
+  const buttonRef = React.useRef(null)
+
+  const [isOpen, seetIsOpen] = React.useState(false)
+
+  React.useEffect(() => {
+    const closeDropdown = (e) => {
+      if (ref.current && !ref.current.contains(e.target) && e.target !== buttonRef.current ) {
+        seetIsOpen(false)
+      }
+    }
+
+    document.body.addEventListener('click', closeDropdown)
+
+    return () => {
+      document.body.removeEventListener('click', closeDropdown)
+    }
+  }, [])
+
+  return (
+    <div  className="dropdown">
+      <div className="dropdown__header">
+        Filter by 
+        <button ref={buttonRef} className="dropdown__button" onClick={() => seetIsOpen(!isOpen)}>
+          <Icom size={16} icon={downArrow} />
+        </button>
+      </div>
+
+      {
+        isOpen &&
+        <div ref={ref} className="dropdown__main">
+          <ul className="dropdown__list">
+            <li className="dropdown__list-item">Africa</li>
+            <li className="dropdown__list-item">America</li>
+            <li className="dropdown__list-item">Asia</li>
+            <li className="dropdown__list-item">Europe</li>
+            <li className="dropdown__list-item">Oceania</li>
+          </ul>
+        </div>
+      }
+    </div>
+  )
+}
+
+export default Dropdown
