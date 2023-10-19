@@ -8,10 +8,14 @@ import './Main.scss'
 const Main: React.FC = () => {
   const [list, setList] = React.useState([])
 
+  const getList = async () => {
+    const response = await fetch('https://restcountries.com/v3.1/all')
+    const data = await response.json()
+    setList(data)
+  }
+
   React.useEffect(() => {
-    fetch('https://restcountries.com/v3.1/all')
-    .then(response => response.json())
-    .then(res => setList(res))
+    getList()
   }, [])
 
   return (
