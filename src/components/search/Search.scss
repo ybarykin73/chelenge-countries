@@ -13,7 +13,16 @@
     color: var(--text-color);
   }
 
-  .input {
+  &__input {
     padding: 0 10px;
+    border: none;
+    width: 100%;
+    min-height: 58px;
+    outline: none;
+    background-color: transparent;
+  
+    &::placeholder {
+      color: #626262;
+    }
   }
 }

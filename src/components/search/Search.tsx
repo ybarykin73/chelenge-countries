@@ -1,6 +1,5 @@
 import React from "react";
 import Icom from "../subcomponents/icon/Icon";
-import Input from "../subcomponents/input/Input";
 import SearchIcon from '../../assets/icon/search.svg'
 
 import './Search.scss'
@@ -20,9 +19,12 @@ const Search: React.FC = () => {
           icon={SearchIcon}
         />
       </button>
-      <Input
-      onChange={changeSearch}
-        type='search' 
+      <input 
+        type='search'
+        className="search__input"
+        value={search}
+        onChange={(e) => changeSearch(e.target.value)}
+        placeholder="Search for a country..." 
       />
     </div>
   )
