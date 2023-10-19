@@ -1,5 +1,5 @@
 :root {
-  
+  --border-radius: 5px
 }
 
 *,
@@ -48,4 +48,10 @@ body {
   clip-path: inset(100%);
   clip: rect(0 0 0 0);
   overflow: hidden;
+}
+
+button {
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
 }
