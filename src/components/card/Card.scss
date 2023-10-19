@@ -1,0 +1,31 @@
+.card {
+  border-radius: var(--border-radius);
+  box-shadow: var(--box-shadow);
+  overflow: hidden;
+  padding-bottom: 40px;
+
+  &__image {
+    margin-bottom: 10px;
+  }
+
+  &__img {
+    max-height: 170px;
+    object-fit: cover;
+  }
+
+  &__body {
+    padding: 0 20px;
+  }
+
+  &__title {
+    font-size: 18px;
+    font-weight: 800;
+    margin: 0;
+    margin-bottom: 15px;
+  }
+
+  &__list-item {
+    font-size: 14px;
+    margin-bottom: 5px;
+  }
+}
