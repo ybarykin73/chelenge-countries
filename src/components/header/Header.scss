@@ -2,6 +2,14 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 25px 80px;
+  padding: 10px 15px;
   box-shadow: var(--box-shadow);
+
+  @media screen and (min-width: 750px) {
+    padding: 65px 30px;
+  }
+
+  @media screen and (min-width: 1440px) {
+    padding: 25px 80px;
+  }
 }

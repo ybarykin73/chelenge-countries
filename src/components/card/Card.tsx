@@ -21,9 +21,9 @@ const Card: React.FC<IProps> = (props) => {
       <div className="card__body">
         <h2 className="card__title">{title}</h2>
         <ul className="card__list">
-          <li className="card__list-item">Population: {population}</li>
-          <li className="card__list-item">Region: {region}</li>
-          <li className="card__list-item">Capital: {capital}</li>
+          <li className="card__list-item"><b>Population:</b> {population}</li>
+          <li className="card__list-item"><b>Region:</b> {region}</li>
+          <li className="card__list-item"><b>Capital:</b> {capital}</li>
         </ul>
       </div>
     </div>

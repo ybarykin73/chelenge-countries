@@ -1,5 +1,5 @@
 :root {
-  --border-radius: 5px
+  --border-radius: 10px
 }
 
 *,
@@ -64,4 +64,10 @@ ol, ul {
 img {
   max-width: 100%;
   display: block;
+}
+
+@media screen and (min-width: 1440px) {
+  :root {
+    --border-radius: 5px
+  }
 }

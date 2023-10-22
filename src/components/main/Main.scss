@@ -1,10 +1,26 @@
 .main {
-  padding: 45px 80px;
+  padding: 20px 15px;
+
+  @media screen and (min-width: 750px) {
+    padding: 45px 35px;
+  }
+
+  @media screen and (min-width: 1440px) {
+    padding: 45px 80px;
+  }
 
   &__tools {
-    display: flex;
-    justify-content: space-between;
-    align-items: stretch;
-    margin-bottom: 45px;
+    margin-bottom: 25px;
+
+    @media screen and (min-width: 750px) {
+      margin-bottom: 65px;
+    }
+
+    @media screen and (min-width: 1440px) {
+      display: flex;
+      justify-content: space-between;
+      align-items: stretch;
+      margin-bottom: 50px;
+    }
   }
 }

@@ -13,13 +13,13 @@ const Dropdown: React.FC<IProps> = (props) => {
   const ref = React.useRef(null)
   const buttonRef = React.useRef(null)
 
-  const [isOpen, seetIsOpen] = React.useState(false)
-  const [select, setSelect] = React.useState('')
+  const [isOpen, setIsOpen] = React.useState(false)
+  const [select, setSelect] = React.useState('Region')
 
   React.useEffect(() => {
     const closeDropdown = (e) => {
       if (ref.current && !ref.current.contains(e.target) && e.target !== buttonRef.current ) {
-        seetIsOpen(false)
+        setIsOpen(false)
       }
     }
 
@@ -38,8 +38,12 @@ const Dropdown: React.FC<IProps> = (props) => {
     <div  className="dropdown">
       <div className="dropdown__header">
         Filter by {select}
-        <button ref={buttonRef} className="dropdown__button" onClick={() => seetIsOpen(!isOpen)}>
-          <Icom size={16} icon={downArrow} />
+        <button ref={buttonRef} className="dropdown__button" onClick={() => setIsOpen(!isOpen)}>
+          <Icom 
+            className="dropdown__button-icon" 
+            size={16} 
+            icon={downArrow} 
+          />
         </button>
       </div>
 
