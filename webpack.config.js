@@ -9,7 +9,8 @@ module.exports = {
   devtool: 'inline-source-map',
   devServer: {
     static: './src',
-    open: true
+    open: true,
+    historyApiFallback: true
   },
   resolve: {
     extensions: ['', '.tsx', '.ts', '.js', '.jsx', '.css', '.scss', '.sass']
@@ -23,7 +24,8 @@ module.exports = {
   output: {
     filename: '[name].bundle.js',
     path: path.resolve(__dirname, 'dist'),
-    clean: true
+    clean: true,
+    publicPath: '/'
   },
   optimization: {
     runtimeChunk: 'single'

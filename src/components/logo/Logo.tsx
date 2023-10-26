@@ -1,10 +1,11 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 import './Logo.scss'
 
 const Logo: React.FC = () => {
   return (
-    <div className='logo'>Where in the world?</div>
+    <Link to={'/'} className='logo'>Where in the world?</Link>
   )
 }
 
