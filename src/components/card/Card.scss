@@ -70,6 +70,12 @@
     }
   }
 
+  &__title-link {
+    text-decoration: none;
+    color: var(--text-color);
+    cursor: pointer;
+  }
+
   &__list-item {
     font-size: 20px;
     margin-bottom: 5px;

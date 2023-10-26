@@ -1,0 +1,53 @@
+.single-countrie {
+  padding: 0 15px;
+
+  @media screen and (min-width: 750px) {
+    padding: 0 55px;
+  }
+
+  &__flag {
+    margin-bottom: 40px;
+
+    @media screen and (min-width: 750px) {
+       margin-bottom: 90px;
+    }
+  }
+
+  &__body {
+
+  }
+
+  &__title {
+    font-size: 22px;
+    font-weight: 800;
+    margin: 0;
+
+    @media screen and (min-width: 750px) {
+      font-size: 44px;
+      margin-bottom: 50px;
+    }
+  }
+
+  &__list {
+    font-size: 27px;
+  }
+
+  &__list-item {
+    span {
+      margin-right: 5px;
+      &::after {
+        content: ',';
+      }
+
+      &:last-child {
+        &::after {
+          content: '';
+        }
+      }
+    }
+
+    & + & {
+      margin-top: 25px;
+    }
+  }
+}
