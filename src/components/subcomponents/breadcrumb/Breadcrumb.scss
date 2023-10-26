@@ -1,0 +1,13 @@
+.breadcrumb {
+  padding: 20px 15px;
+  margin-bottom: 20px;
+
+  @media screen and (min-width: 750px) {
+    padding: 70px 55px;
+    margin-bottom: 50px;
+  }
+
+  @media screen and (min-width: 1440px) {
+    padding: 80px
+  }
+}
