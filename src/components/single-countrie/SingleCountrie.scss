@@ -5,31 +5,76 @@
     padding: 0 55px;
   }
 
+  @media screen and (min-width: 1440px) {
+    padding: 0 80px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-column-gap: 80px;
+  }
+
   &__flag {
     margin-bottom: 40px;
 
     @media screen and (min-width: 750px) {
        margin-bottom: 90px;
     }
+
+    @media screen and (min-width: 1440px) {
+      margin-bottom: 0;
+    }
   }
 
   &__body {
-
+    @media screen and (min-width: 1440px) {
+      padding-top: 40px;
+    }
   }
 
   &__title {
     font-size: 22px;
     font-weight: 800;
     margin: 0;
+    margin-bottom: 15px;
 
     @media screen and (min-width: 750px) {
       font-size: 44px;
       margin-bottom: 50px;
     }
+
+    @media screen and (min-width: 1440px) {
+      font-size: 32px;
+      margin-bottom: 30px;
+    }
+  }
+
+  &__sub-title {
+    margin: 0;
+    font-size: 18px;
+
+    @media screen and (min-width: 750px) {
+      font-size: 30px;
+    }
+
+    @media screen and (min-width: 1440px) {
+      font-size: 15px;
+    }
   }
 
   &__list {
-    font-size: 27px;
+    font-size: 15px;
+    margin-bottom: 40px;
+
+    @media screen and (min-width: 750px) {
+      margin-bottom: 80px;
+    }
+
+    @media screen and (min-width: 1440px) {
+      font-size: 16px;
+      margin-bottom: 110px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-row-gap: 10px;
+    }
   }
 
   &__list-item {
@@ -47,7 +92,16 @@
     }
 
     & + & {
-      margin-top: 25px;
+
+      margin-top: 10px;
+
+      @media screen and (min-width: 750px) {
+        margin-top: 25px;
+      }
+
+      @media screen and (min-width: 1440px) {
+        margin-top: 0;
+      }
     }
   }
 }

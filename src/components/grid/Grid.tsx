@@ -14,7 +14,7 @@ const Grid : React.FC<IProps> = (props) => {
       {
         list.map(item => (
           <Card 
-            key={item.id}
+            key={item.name.common}
             title={item.name.common}
             population={item.population}
             region={item.region}

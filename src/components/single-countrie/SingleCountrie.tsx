@@ -1,4 +1,5 @@
 import React from "react"
+import { useNavigate } from "react-router-dom"
 
 import { IProps } from "./ISingleCountrie"
 import './SingleCountrie.scss'
@@ -10,11 +11,14 @@ const SingleCountrie:React.FC<IProps> = (props) => {
     flags,
     region,
     capital,
+    borders,
     subregion,
     languages,
     currencies,
     population
   } = props
+
+  const navigate = useNavigate()
 
   return (
     <section className="single-countrie">
@@ -57,12 +61,20 @@ const SingleCountrie:React.FC<IProps> = (props) => {
             }
           </li>
         </ul>
-        <h3 className="single-countrie__sub-title">sub</h3>
-        <ul className="single-countrie__tags">
-          <li className="single-countrie__tags-item">
-            asdwad
-          </li>
-        </ul>
+        <h3 className="single-countrie__sub-title">
+          Border Countries:
+        </h3>
+        {
+          !borders.length 
+            ?
+            <p className="single-countrie__">
+              There is no border countries
+            </p>
+            :
+            <ul className="single-countrie__tags">
+              <button onClick={() => navigate('/')}>test</button>
+            </ul>
+        }
       </div>
     </section>
   )

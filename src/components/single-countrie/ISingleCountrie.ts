@@ -3,6 +3,7 @@ export interface IProps {
   population: number,
   region: string,
   subregion: string,
+  borders: string[],
   capital: string[],
   currencies: Record<string,string>[],
   languages: Record<string, string>,
