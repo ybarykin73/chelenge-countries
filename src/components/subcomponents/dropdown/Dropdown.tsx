@@ -7,7 +7,8 @@ import './Dropdown.scss'
 
 const Dropdown: React.FC<IProps> = (props) => {
   const {
-    list
+    list,
+    handleSelect
   } = props
 
   const ref = React.useRef(null)
@@ -32,6 +33,7 @@ const Dropdown: React.FC<IProps> = (props) => {
 
   const selectItem = (item: string) => {
     setSelect(item)
+    handleSelect(item)
   }
 
   return (
@@ -53,16 +55,24 @@ const Dropdown: React.FC<IProps> = (props) => {
           <ul className="dropdown__list">
             {
               list.map(item => (
-                <li key={item.id} className="dropdown__list-item">
+                <li key={item} className="dropdown__list-item">
                   <button 
                     className="dropdown__list-button"
-                    onClick={() => selectItem(item.partWorld)}
+                    onClick={() => selectItem(item)}
                   >
-                    {item.partWorld}
+                    {item}
                   </button>
                 </li>
               ))
             }
+            <li className="dropdown__list-item">
+              <button 
+                className="dropdown__list-button"
+                onClick={() => selectItem('')}
+              >
+                Clear filter
+              </button>
+            </li>
           </ul>
         </div>
       }

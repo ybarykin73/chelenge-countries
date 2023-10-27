@@ -1,20 +1,23 @@
 import React from "react"
 import Dropdown from "../subcomponents/dropdown/Dropdown"
 
+import { IProps } from "./IFilter"
 import './Filter.scss'
 
-const filterList = [
-  {id: 1,partWorld: 'Africa'},
-  {id: 2,partWorld: 'America'},
-  {id: 3,partWorld: 'Asia'},
-  {id: 4,partWorld: 'Europe'},
-  {id: 5,partWorld: 'Oceania'}
-]
+const Filter: React.FC<IProps> = (props) => {
+  const {
+    filteList,
+    handleFilter
+  } = props
 
-const Filter: React.FC = () => {
+  const [fiterRegion, setFilterRegion] = React.useState('111')
+
   return (
     <div className="filter">
-      <Dropdown list={filterList} />
+      <Dropdown 
+        list={filteList}
+        handleSelect={handleFilter}
+      />
     </div>
   )
 }
