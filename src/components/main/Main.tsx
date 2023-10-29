@@ -13,19 +13,29 @@ const Main: React.FC<any> = (props) => {
 
   const [countriesList, setCountriesList] = React.useState(countries)
   const [regionList, setRegionList] = React.useState([])
+  const [loading, setLoading] = React.useState(true)
   const [filter, setFilter] = React.useState('')
   const [serach, setSearch] = React.useState('')
 
-  const getCountrues = React.useCallback( async () => {
-    const response = await fetch('https://restcountries.com/v3.1/all')
-    const data = await response.json()
-    const regions = Array.from( new Set(data.map(item => item.region)))
-    setRegionList(regions)
-    setCountries(data)
-  }, [])
+  const getCountrues = async () => {
+    try {
+      const response = await fetch('https://restcountries.com/v3.1/all')
+      const data = await response.json()
+      const regions = Array.from( new Set(data.map(item => item.region)))
+      setRegionList(regions)
+      setCountries(data)
+    } catch(error) {
+      console.log(error)
+    }
+    finally {
+      setLoading(false)
+    }
+  }
 
   React.useEffect(() => {
-    getCountrues()
+    if(!countries.length) {
+      getCountrues()
+    }
   }, [])
 
   React.useEffect(() => {
@@ -33,28 +43,24 @@ const Main: React.FC<any> = (props) => {
   }, [countries])
 
   React.useEffect(() => {
-    const data = countries.filter(item => item.region.toLowerCase().includes(filter.toLocaleLowerCase()))
+    let data = [...countries]
 
+    if (serach) {
+      data = data.filter(item => item.name.common.toLowerCase().includes(serach.toLocaleLowerCase()))
+    }
+
+    if (filter) {
+      data = data.filter(item => item.region.toLowerCase().includes(filter.toLocaleLowerCase()))
+    }
     setCountriesList(data)
-  }, [filter])
 
-  console.log(countries)
-
-  React.useEffect(() => {
-    const data = countries.filter(item => item.name.common.toLowerCase().includes(serach.toLocaleLowerCase()))
-
-    setCountriesList(data)
-  }, [serach])
-
-  const searchCountrue = (value) => {
-    setSearch(value)
-  }
+  }, [serach, filter])
 
   return (
     <div className="container">
       <main className="main">
         <div className="main__tools">
-          <Search handleSearch={searchCountrue} />
+          <Search handleSearch={setSearch} />
           <Filter handleFilter={setFilter} filteList={regionList} />
         </div>
         <Grid list={countriesList}/>

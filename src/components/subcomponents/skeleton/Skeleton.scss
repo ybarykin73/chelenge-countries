@@ -1,0 +1,46 @@
+.skeleton {
+  position: relative;
+  overflow: hidden;
+  margin-bottom: 10px;
+ 
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 50%;
+    z-index: 5;
+    width: 500%;
+    margin-left: -250%;
+    animation: skeleton 1s linear infinite;
+    background: linear-gradient(145deg, hsla(0, 0%, 100%, 0) 35%, hsla(0, 0%, 100%, .35) 40%, hsla(0, 0%, 100%, 0) 54%) 50% 50%
+  }
+
+  &__image {
+    padding-top: 50%;
+    margin-bottom: 10px;
+    background-color: var(--skeleton-bg);
+  }
+
+  &__title {
+    min-height: 40px;
+    margin-bottom: 10px;
+    background-color: var(--skeleton-bg);
+  }
+
+  &__text {
+    min-height: 20px;
+    margin-bottom: 10px;
+    background-color: var(--skeleton-bg);
+  }
+}
+
+@keyframes skeleton {
+  0% {
+    transform: translate3d(-30%, 0, 0)
+  }
+  to {
+    transform: translate3d(30%, 0, 0)
+  }
+}

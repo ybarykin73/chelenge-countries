@@ -61,7 +61,7 @@ const SingleCountrie:React.FC<IProps> = (props) => {
             }
           </li>
         </ul>
-        <h3 className="single-countrie__sub-title">
+        {/* <h3 className="single-countrie__sub-title">
           Border Countries:
         </h3>
         {
@@ -74,7 +74,7 @@ const SingleCountrie:React.FC<IProps> = (props) => {
             <ul className="single-countrie__tags">
               <button onClick={() => navigate('/')}>test</button>
             </ul>
-        }
+        } */}
       </div>
     </section>
   )
