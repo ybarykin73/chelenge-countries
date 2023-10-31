@@ -1,5 +1,4 @@
 import React from "react"
-import { useNavigate } from "react-router-dom"
 
 import { IProps } from "./ISingleCountrie"
 import './SingleCountrie.scss'
@@ -17,8 +16,6 @@ const SingleCountrie:React.FC<IProps> = (props) => {
     currencies,
     population
   } = props
-
-  const navigate = useNavigate()
 
   return (
     <section className="single-countrie">
@@ -40,41 +37,47 @@ const SingleCountrie:React.FC<IProps> = (props) => {
           <li className="single-countrie__list-item">
             <b>Subregion</b>: {subregion}
           </li>
-          <li className="single-countrie__list-item">
-            <b>Capital</b>: {
-              capital.map(item =><span key={item}>{item}</span>)
-            }
-          </li>
+          {
+            capital 
+            &&
+            <li className="single-countrie__list-item">
+              <b>Capital</b>: {
+                capital.map(item =><span key={item}>{item}</span>)
+              }
+            </li>
+          }
           <li className="single-countrie__list-item">
             <b>Top Level Domain</b>: {
               tld.map(item => <span key={item}>{item}</span>)
             }
           </li>
-          <li className="single-countrie__list-item">
-            <b>Currencies</b>: {
-              Object.keys(currencies).map(item => <span key={item}>{item}</span>)
+          {
+            currencies 
+            &&
+            <li className="single-countrie__list-item">
+              <b>Currencies</b>: {
+                Object.keys(currencies).map(item => <span key={item}>{item}</span>)
+              }
+            </li>
             }
-          </li>
           <li className="single-countrie__list-item">
             <b>Languages</b>: {
               Object.keys(languages).map(item => <span key={item}>{item}</span>)
             }
           </li>
         </ul>
-        {/* <h3 className="single-countrie__sub-title">
+        <h3 className="single-countrie__sub-title">
           Border Countries:
         </h3>
         {
-          !borders.length 
+          !borders 
             ?
             <p className="single-countrie__">
               There is no border countries
             </p>
             :
-            <ul className="single-countrie__tags">
-              <button onClick={() => navigate('/')}>test</button>
-            </ul>
-        } */}
+            <p>This country borders {borders.length} countries</p>
+        }
       </div>
     </section>
   )
