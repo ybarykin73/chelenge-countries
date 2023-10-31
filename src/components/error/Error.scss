@@ -1,0 +1,14 @@
+.error {
+  text-align: center;
+  color: var(--tect-color);
+
+  &__title {
+    font-size: 34px;
+    margin: 0;
+  }
+
+  &__description {
+    font-size: 20px;
+    margin: 0;
+  }
+}
