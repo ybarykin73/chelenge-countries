@@ -5,22 +5,20 @@ import './CountriePageSkeleton.scss'
 
 const CountriePageSkeleton:React.FC = () => {
   return (
-    <div className="container">
-      <Skeleton>
-        <div className="countrie-page-skeleton">
-          <Skeleton.Image />
-          <div className="countrie-page-skeleton__body">
-            <Skeleton.Title />
-            <Skeleton.Text />
-            <Skeleton.Text />
-            <Skeleton.Text />
-            <Skeleton.Text />
-            <Skeleton.Text />
-            <Skeleton.Text />
-          </div>
+    <Skeleton>
+      <div className="countrie-page-skeleton">
+        <Skeleton.Image />
+        <div className="countrie-page-skeleton__body">
+          <Skeleton.Title />
+          <Skeleton.Text />
+          <Skeleton.Text />
+          <Skeleton.Text />
+          <Skeleton.Text />
+          <Skeleton.Text />
+          <Skeleton.Text />
         </div>
-      </Skeleton>
-    </div>
+      </div>
+    </Skeleton>
   )
 }
 

@@ -4,12 +4,14 @@ import { useParams } from "react-router-dom"
 import Breadcrumb from "../../subcomponents/breadcrumb/Breadcrumb"
 import SingleCountrie from "../../single-countrie/SingleCountrie"
 import CountriePageSkeleton from "./CountriePageSkeleton"
+import Error from "../../error/Error"
 
 const CountriePage:React.FC = () => {
   const {countrieName} = useParams();
 
   const [countrie, setCountrie] = React.useState(null)
   const [loading, setLoading] = React.useState(true)
+  const [error, setError] = React.useState(false)
 
   const getCountrue = async () => {
     try {
@@ -17,7 +19,8 @@ const CountriePage:React.FC = () => {
       const data = await response.json()
       setCountrie(data[0])
     } catch(error) {
-
+      console.error(error)
+      setError(true)
     } finally {
       setLoading(false)
     }
@@ -27,16 +30,16 @@ const CountriePage:React.FC = () => {
     getCountrue()
   }, [])
 
-  if(!countrie || loading) {
-    return (
-      <CountriePageSkeleton />
-    )
-  }
-
   return (
     <div className="container">
       <Breadcrumb />
-      <SingleCountrie {...countrie}  />
+      {
+        loading ? <CountriePageSkeleton /> 
+        : 
+        error || !countrie 
+        ? <Error /> 
+        : <SingleCountrie {...countrie}  />
+      }
     </div>
   )
 }
