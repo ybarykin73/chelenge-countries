@@ -2,6 +2,7 @@ import React from "react"
 import Search from "../search/Search"
 import Filter from "../filter/Filter"
 import Grid from "../grid/Grid"
+import Error from "../error/Error"
 
 import './Main.scss'
 
@@ -13,9 +14,9 @@ const Main: React.FC<any> = (props) => {
 
   const [countriesList, setCountriesList] = React.useState(countries)
   const [regionList, setRegionList] = React.useState([])
-  const [loading, setLoading] = React.useState(true)
   const [filter, setFilter] = React.useState('')
   const [serach, setSearch] = React.useState('')
+  const [error, setError] = React.useState(false)
 
   const getCountrues = async () => {
     try {
@@ -26,9 +27,7 @@ const Main: React.FC<any> = (props) => {
       setCountries(data)
     } catch(error) {
       console.log(error)
-    }
-    finally {
-      setLoading(false)
+      setError(true)
     }
   }
 
@@ -52,8 +51,8 @@ const Main: React.FC<any> = (props) => {
     if (filter) {
       data = data.filter(item => item.region.toLowerCase().includes(filter.toLocaleLowerCase()))
     }
+    
     setCountriesList(data)
-
   }, [serach, filter])
 
   return (
@@ -63,7 +62,11 @@ const Main: React.FC<any> = (props) => {
           <Search handleSearch={setSearch} />
           <Filter handleFilter={setFilter} filteList={regionList} />
         </div>
-        <Grid list={countriesList}/>
+        {
+          !error 
+          ? <Grid list={countriesList}/>
+          : <Error />
+        }
       </main>
     </div>
   )
