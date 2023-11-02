@@ -24,7 +24,7 @@ const Grid : React.FC<IProps> = (props) => {
               population={item.population}
               region={item.region}
               capital={item.capital}
-              flag={item.flags}
+              flags={item.flags}
             />
         ))
       }

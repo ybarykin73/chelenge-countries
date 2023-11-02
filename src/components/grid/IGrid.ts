@@ -1,3 +1,5 @@
+import { ICountry } from "../../types/country"
 export interface IProps {
-  list: any
+  list: ICountry[]
 }
+

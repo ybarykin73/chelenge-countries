@@ -7,7 +7,7 @@ import './Card.scss'
 const Card: React.FC<IProps> = (props) => {
 
   const {
-    flag,
+    flags,
     title,
     region,
     capital,
@@ -18,7 +18,7 @@ const Card: React.FC<IProps> = (props) => {
     
     <div className="card">
       <div className="card__image">
-        <img className="card__img" src={flag.svg} alt={flag.alt} />
+        <img className="card__img" src={flags.svg} alt={flags.alt} />
       </div>
       <div className="card__body">
         <h2 className="card__title">

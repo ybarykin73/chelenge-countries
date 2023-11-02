@@ -4,9 +4,10 @@ import Filter from "../filter/Filter"
 import Grid from "../grid/Grid"
 import Error from "../error/Error"
 
+import { IProps } from './IMain'
 import './Main.scss'
 
-const Main: React.FC<any> = (props) => {
+const Main: React.FC<IProps> = (props) => {
   const {
     countries,
     setCountries
@@ -20,7 +21,7 @@ const Main: React.FC<any> = (props) => {
 
   const getCountrues = async () => {
     try {
-      const response = await fetch('https://restcountries.com/v3.1/all')
+      const response = await fetch('https://restcountries.com/v3.1/all?fields=name,population,region,capital,flags')
       const data = await response.json()
       const regions = Array.from( new Set(data.map(item => item.region)))
       setRegionList(regions)

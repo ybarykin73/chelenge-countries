@@ -1,13 +1,6 @@
-export interface IProps {
-  population: number,
-  region: string,
-  capital: string,
-  flag: flags,
-  title: string
-}
+import { ICountry } from "../../types/country"
 
-type flags = {
-  png: string,
-  svg: string
-  alt: string
+export interface IProps extends ICountry {
+  title: string,
+  // capital: string,
 }
